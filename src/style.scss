@@ -1,0 +1,91 @@
+@use "scss/normalize";
+
+:root {
+    --bg-main: #1e1e2e;
+    --bg-secondary: #11111b;
+    --text-main: #cdd6f4;
+    --accent-color: #89b4fa;
+}
+
+body,
+html {
+    width: 100%;
+}
+
+body {
+    background-color: var(--bg-secondary);
+    position: relative;
+    font-size: 16px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 100vh;
+    min-width: 100vw;
+    gap: 1em;
+}
+
+.panel {
+    &-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 450px;
+    max-width: 1000px;
+}
+
+.sidebar {
+    height: 100%;
+    width: 300px;
+    background-color: var(--accent-color);
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-main);
+}
+
+bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 32px;
+    max-width: 1000px;
+    background-color: var(--bg-main);
+}
+
+.settings {
+    &-wrapper {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 0.5em;
+    }
+
+    i {
+        color: transparent;
+        font-size: 1.5em;
+        transition: all 0.3s ease;
+
+        &:hover {
+            color: var(--text-main);
+            cursor: pointer;
+        }
+    }
+}
