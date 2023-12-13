@@ -7,19 +7,35 @@
     <title>New Tab</title>
     <link rel="stylesheet" type="text/css" href="res/tabler-icons.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="./main.js"></script>
 </head>
 
 <body>
+    <div id="settings">
+        <div class="settings-container">
+            <div class="close-button" onclick="closeSettings()">
+                <i class="ti ti-x"></i>
+            </div>
+            Colors and stuff. hm!
+        </div>
+    </div>
+
     <div class="wrapper">
         <div class="panel-wrapper">
             <div id="1" class="panel">
                 <div class="sidebar" style="background-image: url('img/side1.png')"></div>
-                <div class="container"></div>
+                <div class="container">
+                    <div class="link-row">
+                        <button class="link add">
+                            <i class="ti ti-plus"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="settings-wrapper">
-            <div class="settings">
+        <div id="settings-button">
+            <div class="button" onclick="showSettings()">
                 <i class="ti ti-settings"></i>
             </div>
         </div>
