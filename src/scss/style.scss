@@ -1,5 +1,5 @@
-@use "scss/normalize";
-@use "scss/palette/mocha";
+@use "normalize";
+@use "palette/mocha";
 
 :root {
     --bg-main: #{mocha.$base};
