@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <div id="settings">
-        <div class="settings-container">
+    <div id="settings" class="module">
+        <div class="settings__container">
             <div class="close-button" onclick="closeSettings()">
                 <i class="ti ti-x"></i>
             </div>
@@ -20,13 +20,25 @@
         </div>
     </div>
 
+    <div id="addLink" class="module">
+        <div class="addLink__container">
+            <div class="close-button" onclick="closeAddLink()">
+                <i class="ti ti-x"></i>
+            </div>
+            <div class="addLink__content">
+                <input type="text" name="icon" placeholder="Icon" />
+                <input type="url" name="link" placeholder="Link" />
+            </div>
+        </div>
+    </div>
+
     <div class="wrapper">
-        <div class="panel-wrapper">
-            <div id="1" class="panel">
+        <div class="panel">
+            <div id="1" class="panel__container">
                 <div class="sidebar" style="background-image: url('img/side1.png')"></div>
                 <div class="container">
                     <div class="link-row">
-                        <button class="link add">
+                        <button class="link add" onclick="showAddLink()">
                             <i class="ti ti-plus"></i>
                         </button>
                     </div>

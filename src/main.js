@@ -5,3 +5,11 @@ function showSettings() {
 function closeSettings() {
     document.getElementById("settings").style.display = "none";
 }
+
+function showAddLink() {
+    document.getElementById("addLink").style.display = "flex";
+}
+
+function closeAddLink() {
+    document.getElementById("addLink").style.display = "none";
+}

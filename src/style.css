@@ -259,20 +259,45 @@ body {
   gap: 1em;
 }
 
+.module {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+}
+.module .close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 0.8em;
+}
+.module .close-button i {
+  cursor: pointer;
+  font-size: 1.5em;
+}
+.module .close-button:hover {
+  color: var(--accent-color);
+}
+
 .panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.panel__container {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 90%;
   height: 450px;
   max-width: 1000px;
-}
-.panel-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
 }
 
 .sidebar {
@@ -338,35 +363,46 @@ button.link:active {
   cursor: pointer;
 }
 
-#settings {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-#settings .settings-container {
+.settings__container {
   position: relative;
   background-color: var(--bg-main);
   border-radius: 10px;
   height: 60%;
   width: 60%;
   color: var(--text-main);
-  padding: 1em;
+  padding: 2.25em;
 }
-#settings .close-button {
-  position: absolute;
-  right: 0;
-  top: 0;
-  margin: 0.8em;
+
+.addLink__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: var(--bg-main);
+  border-radius: 10px;
+  height: 250px;
+  width: auto;
+  color: var(--text-main);
+  padding: 2.25em;
 }
-#settings .close-button i {
-  cursor: pointer;
-  font-size: 1.5em;
+.addLink__container input {
+  appearance: none;
+  color: var(--text-main);
+  background-color: #313244;
+  padding: 0.55em 0.75em;
+  border: none;
+  border-radius: 8px;
+}
+.addLink__container input::placeholder {
+  color: #7f849c;
+}
+.addLink__container input:active, .addLink__container input:focus {
+  outline: solid 3px var(--accent-color);
+}
+.addLink__content {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  gap: 0 8px;
 }
 
 /*# sourceMappingURL=style.css.map */
