@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <!-- settings module -->
     <div id="settings" class="module">
         <div class="settings__container">
             <div class="close-button" onclick="closeSettings()">
@@ -20,6 +21,7 @@
         </div>
     </div>
 
+    <!-- new link module -->
     <div id="addLink" class="module">
         <div class="addLink__container">
             <div class="close-button" onclick="closeAddLink()">
@@ -32,10 +34,17 @@
         </div>
     </div>
 
+    <!-- main container -->
     <div class="wrapper">
         <div class="panel">
             <div id="1" class="panel__container">
-                <div class="sidebar" style="background-image: url('img/side1.png')"></div>
+                <div class="sidebar" style="background-image: url('img/side1.png')">
+                    <div class="clock__container">
+                        <div id="clock" onload="currentTime24()">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="container">
                     <div class="link-row">
                         <button class="link add" onclick="showAddLink()">
@@ -46,6 +55,7 @@
             </div>
         </div>
 
+        <!-- button to open settings -->
         <div id="settings-button">
             <div class="button" onclick="showSettings()">
                 <i class="ti ti-settings"></i>

@@ -13,3 +13,7 @@ function showAddLink() {
 function closeAddLink() {
     document.getElementById("addLink").style.display = "none";
 }
+
+function currentTime24() {
+    setInterval();
+}
