@@ -16,4 +16,5 @@ Start page/new tab (firefox) extension project for my web dev final. Still a WIP
 -   [ ] Weather widget
 -   [ ] Multiple tabs
 -   [ ] Make a favicon
+-   [ ] Actually make this extension WORK
 -   [ ] ??? Lots of things
