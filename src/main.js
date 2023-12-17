@@ -14,26 +14,69 @@ function closeAddLink() {
     document.getElementById("addLink").style.display = "none";
 }
 
-// add links
-function addLink() {
-    const inputIcon = document.querySelector("[name='icon']")[0].value;
-    const inputURL = document.querySelector("[name='url']")[0].value;
-    const inputIconColor = document.querySelector("[name='icon-color']")[0]
-        .value;
-    const inputLinkName = document.querySelector("[name='link-name']")[0].value;
+function addButtonLink(inputIcon, inputURL, inputIconColor, inputLinkName) {
+    const parentDiv = document.getElementsByClassName("link-row").parentNode;
+    let childElement = document.getElementsByClassName("link add");
 
     const buttonTemplate = document
         .getElementById("button-link-template")
         .content.cloneNode(true);
-    buttonTemplate.getElementsByTagName(
-        "i"
-    )[0].className = `ti ti-${inputIcon}`;
-    buttonTemplate
-        .getElementsByTagName("a")[0]
-        .setAttribute("href", `${inputURL}`).innerHTML = `${inputLinkName}`;
+    document
+        .getElementsByClassName("link-row")[0]
+        .insertBefore(buttonTemplate, childElement);
+    document
+        .getElementsByClassName("link")
+        [
+            document.getElementsByClassName("link").length - 1
+        ].getElementsByTagName("i")[0].className = `ti ti-${inputIcon}`;
+    document
+        .getElementsByClassName("link")
+        [
+            document.getElementsByClassName("link").length - 1
+        ].getElementsByTagName("a")[0]
+        .setAttribute("href", `${inputURL}`);
+    document
+        .getElementsByClassName("link")
+        [
+            document.getElementsByClassName("link").length - 1
+        ].getElementsByTagName("i")[0].style.color = `${inputIconColor}`;
+    document
+        .getElementsByClassName("link")
+        [
+            document.getElementsByClassName("link").length - 1
+        ].getElementsByTagName("a")[0].innerHTML = `${inputLinkName}`;
+}
 
-    document.getElementsByClassName("link-row")[0].appendChild(buttonTemplate);
+// add links
+function addLink() {
+    const inputIcon = document.querySelector("[name='icon']").value;
+    const inputURL = document.querySelector("[name='url']").value;
+    const inputIconColor = document.querySelector("[name='icon-color']").value;
+    const inputLinkName = document.querySelector("[name='link-name']").value;
+
+    addButtonLink(inputIcon, inputURL, inputIconColor, inputLinkName);
+
+    let links = localStorage.getItem("links");
+
+    let newArray =
+        links === null || links.length === 0 ? [] : JSON.parse(links);
+    newArray = newArray === null ? [] : newArray;
+
+    let linkObject = {
+        link_icon: `${inputIcon}`,
+        link_icon_color: `${inputIconColor}`,
+        link_name: `${inputLinkName}`,
+        link_url: `${inputLinkURL}`,
+    };
+
+    newArray.push(linkObject);
+    localStorage.setItem("links", JSON.stringify(newArray));
+
     document.getElementById("addLink").style.display = "none";
+
+    // clear all inputs after
+    const allInputs = document.querySelectorAll("input");
+    allInputs.forEach((singleInput) => (singleInput.value = ""));
 }
 
 // display current time

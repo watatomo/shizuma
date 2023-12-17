@@ -431,7 +431,7 @@ button.link a {
   position: relative;
   background-color: var(--bg-main);
   border-radius: var(--borderRadius-container);
-  height: 200px;
+  height: 250px;
   width: auto;
   color: var(--text-main);
   padding: 2.25em;
