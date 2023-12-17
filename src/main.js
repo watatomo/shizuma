@@ -15,8 +15,7 @@ function closeAddLink() {
 }
 
 function addButtonLink(inputIcon, inputURL, inputIconColor, inputLinkName) {
-    const parentDiv = document.getElementsByClassName("link-row").parentNode;
-    let childElement = document.getElementsByClassName("link add");
+    let childElement = document.getElementsByClassName("link add")[0];
 
     const buttonTemplate = document
         .getElementById("button-link-template")
@@ -25,26 +24,18 @@ function addButtonLink(inputIcon, inputURL, inputIconColor, inputLinkName) {
         .getElementsByClassName("link-row")[0]
         .insertBefore(buttonTemplate, childElement);
     document
-        .getElementsByClassName("link")
-        [
-            document.getElementsByClassName("link").length - 1
-        ].getElementsByTagName("i")[0].className = `ti ti-${inputIcon}`;
+        .getElementsByClassName("link")[0]
+        .getElementsByTagName("i")[0].className = `ti ti-${inputIcon}`;
     document
-        .getElementsByClassName("link")
-        [
-            document.getElementsByClassName("link").length - 1
-        ].getElementsByTagName("a")[0]
+        .getElementsByClassName("link")[0]
+        .getElementsByTagName("a")[0]
         .setAttribute("href", `${inputURL}`);
     document
-        .getElementsByClassName("link")
-        [
-            document.getElementsByClassName("link").length - 1
-        ].getElementsByTagName("i")[0].style.color = `${inputIconColor}`;
+        .getElementsByClassName("link")[0]
+        .getElementsByTagName("i")[0].style.color = `${inputIconColor}`;
     document
-        .getElementsByClassName("link")
-        [
-            document.getElementsByClassName("link").length - 1
-        ].getElementsByTagName("a")[0].innerHTML = `${inputLinkName}`;
+        .getElementsByClassName("link")[0]
+        .getElementsByTagName("a")[0].innerHTML = `${inputLinkName}`;
 }
 
 // add links
@@ -66,7 +57,7 @@ function addLink() {
         link_icon: `${inputIcon}`,
         link_icon_color: `${inputIconColor}`,
         link_name: `${inputLinkName}`,
-        link_url: `${inputLinkURL}`,
+        link_url: `${inputURL}`,
     };
 
     newArray.push(linkObject);
@@ -79,8 +70,19 @@ function addLink() {
     allInputs.forEach((singleInput) => (singleInput.value = ""));
 }
 
-// display current time
 window.onload = () => {
+    let links = localStorage.getItem("links");
+
+    let newArray =
+        links === null || links.length === 0 ? [] : JSON.parse(links);
+    newArray = newArray === null ? [] : newArray;
+
+    newArray.forEach((link) => {
+        const { link_icon, link_icon_color, link_name, link_url } = link;
+        addButtonLink(link_icon, link_url, link_icon_color, link_name);
+    });
+
+    // display current time
     setInterval(() => {
         let currentTime = new Date();
         let hr = currentTime.getHours();
