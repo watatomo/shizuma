@@ -15,14 +15,39 @@ function closeAddLink() {
 }
 
 // add links
+function addLink() {
+    const inputIcon = document.querySelector("[name='icon']")[0].value;
+    const inputURL = document.querySelector("[name='url']")[0].value;
+    const inputIconColor = document.querySelector("[name='icon-color']")[0]
+        .value;
+    const inputLinkName = document.querySelector("[name='link-name']")[0].value;
+
+    const buttonTemplate = document
+        .getElementById("button-link-template")
+        .content.cloneNode(true);
+    buttonTemplate.getElementsByTagName(
+        "i"
+    )[0].className = `ti ti-${inputIcon}`;
+    buttonTemplate
+        .getElementsByTagName("a")[0]
+        .setAttribute("href", `${inputURL}`).innerHTML = `${inputLinkName}`;
+
+    document.getElementsByClassName("link-row")[0].appendChild(buttonTemplate);
+    document.getElementById("addLink").style.display = "none";
+}
 
 // display current time
 window.onload = () => {
     setInterval(() => {
-        const currentTime = new Date();
-        const hr = currentTime.getHours();
-        const min = currentTime.getMinutes();
-        const ampm = hr >= 12 ? "PM" : "AM";
+        let currentTime = new Date();
+        let hr = currentTime.getHours();
+        let min = currentTime.getMinutes();
+        let ampm = hr >= 12 ? "PM" : "AM";
+
+        // zero padding
+        if (min <= 9) {
+            min = `0${min}`;
+        }
 
         // formats 12 hour clock
         document.getElementById("clock").innerHTML = `${

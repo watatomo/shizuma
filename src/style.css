@@ -235,6 +235,7 @@ summary {
   --bg-secondary: #11111b;
   --text-main: #cdd6f4;
   --accent-color: #89b4fa;
+  --accent-text: #11111b;
   --borderRadius-container: 8px;
   --borderRadius-input: 5px;
 }
@@ -248,6 +249,7 @@ body {
   background-color: var(--bg-secondary);
   position: relative;
   font-size: 16px;
+  font-family: Inter;
 }
 
 .wrapper {
@@ -262,7 +264,6 @@ body {
 }
 
 .module {
-  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -271,8 +272,10 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
 }
 .module .close-button {
+  color: #a6adc8;
   position: absolute;
   right: 0;
   top: 0;
@@ -284,6 +287,23 @@ body {
 }
 .module .close-button:hover {
   color: var(--accent-color);
+}
+.module .confirm-button {
+  background-color: var(--accent-color);
+  color: var(--accent-text);
+  padding: 0.4em;
+  border: none;
+  border-radius: 3px;
+  margin-top: 12px;
+  transition: all 0.15s ease;
+}
+.module .confirm-button:hover {
+  cursor: pointer;
+  background-color: #5895f8;
+}
+.module .confirm-button:active {
+  transition: none;
+  background-color: #4085f7;
 }
 
 .panel {
@@ -335,10 +355,10 @@ body {
 
 button.link {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.4em 0.7em;
   margin-bottom: 0.7em;
-  font-size: 1.25em;
-  text-decoration: none;
   transition: box-shadow 0.1s ease, transform 0.18s ease;
   border: none;
   border-radius: 3px;
@@ -353,6 +373,18 @@ button.link:hover {
 }
 button.link:active {
   color: var(--accent-color);
+}
+button.link:not(:last-child) {
+  margin-right: 0.4em;
+}
+button.link i {
+  font-size: 1.5em;
+}
+button.link a {
+  font-size: 1.1em;
+  text-decoration: none;
+  margin-left: 8px;
+  color: inherit;
 }
 
 #bar {
@@ -395,10 +427,11 @@ button.link:active {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   position: relative;
   background-color: var(--bg-main);
   border-radius: var(--borderRadius-container);
-  height: 250px;
+  height: 200px;
   width: auto;
   color: var(--text-main);
   padding: 2.25em;
@@ -419,6 +452,7 @@ button.link:active {
 }
 .addLink__content {
   display: grid;
-  grid-template-columns: 30% 1fr;
-  gap: 0 8px;
+  grid-template-columns: 40% 1fr;
+  grid-template-rows: auto;
+  gap: 8px;
 }

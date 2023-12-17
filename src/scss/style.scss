@@ -6,6 +6,7 @@
     --bg-secondary: #{mocha.$crust};
     --text-main: #{mocha.$text};
     --accent-color: #{mocha.$blue};
+    --accent-text: #{mocha.$crust};
     --borderRadius-container: 8px;
     --borderRadius-input: 5px;
 }
@@ -19,6 +20,7 @@ body {
     background-color: var(--bg-secondary);
     position: relative;
     font-size: 16px;
+    font-family: Inter;
 }
 
 .wrapper {
@@ -33,7 +35,7 @@ body {
 }
 
 .module {
-    display: none;
+    // display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -42,8 +44,10 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba($color: #000000, $alpha: 0.55);
+    backdrop-filter: blur(3px);
 
     .close-button {
+        color: mocha.$subtext0;
         position: absolute;
         right: 0;
         top: 0;
@@ -56,6 +60,26 @@ body {
 
         &:hover {
             color: var(--accent-color);
+        }
+    }
+
+    .confirm-button {
+        background-color: var(--accent-color);
+        color: var(--accent-text);
+        padding: 0.4em;
+        border: none;
+        border-radius: 3px;
+        margin-top: 12px;
+        transition: all 0.15s ease;
+
+        &:hover {
+            cursor: pointer;
+            background-color: darken($color: mocha.$blue, $amount: 10%);
+        }
+
+        &:active {
+            transition: none;
+            background-color: darken($color: mocha.$blue, $amount: 15%);
         }
     }
 }
@@ -113,10 +137,10 @@ body {
 // keypad-like buttons
 button.link {
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.4em 0.7em;
     margin-bottom: 0.7em;
-    font-size: 1.25em;
-    text-decoration: none;
     transition: box-shadow 0.1s ease, transform 0.18s ease;
     border: none;
     border-radius: 3px;
@@ -135,6 +159,21 @@ button.link {
 
     &:active {
         color: var(--accent-color);
+    }
+
+    &:not(:last-child) {
+        margin-right: 0.4em;
+    }
+
+    i {
+        font-size: 1.5em;
+    }
+
+    a {
+        font-size: 1.1em;
+        text-decoration: none;
+        margin-left: 8px;
+        color: inherit;
     }
 }
 
@@ -185,10 +224,11 @@ button.link {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         position: relative;
         background-color: var(--bg-main);
         border-radius: var(--borderRadius-container);
-        height: 250px;
+        height: 200px;
         width: auto;
         color: var(--text-main);
         padding: 2.25em;
@@ -214,7 +254,8 @@ button.link {
 
     &__content {
         display: grid;
-        grid-template-columns: 30% 1fr;
-        gap: 0 8px;
+        grid-template-columns: 40% 1fr;
+        grid-template-rows: auto;
+        gap: 8px;
     }
 }
